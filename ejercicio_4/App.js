@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Alert } from 'react-native';
 
 export default function App() {
   const [rol, setRol] = useState("Estudiante de Software en el SENA");
+
+  const alternarRol = () => {
+    setRol(prevRol => 
+      prevRol === "Estudiante de Software en el SENA" 
+        ? "Desarrollador Web Full-Stack 🚀" 
+        : "Estudiante de Software en el SENA"
+    );
+  };
 
   return (
     <View style={styles.container}>
@@ -16,18 +24,29 @@ export default function App() {
           Apasionado por la tecnología, especializado en programación y desarrollo web. Transformo ideas en soluciones funcionales, creativas y eficientes con enfoque en la mejora continua.
         </Text>
       </View>
+      
       <View style={styles.botonera}>
-        <Button
-          title="Cambiar Rol Profesional"
-          onPress={() => setRol("Desarrollador Web Full-Stack 🚀")}
-          color="#4F46E5"
-        />
-        <Button
-          title="Contactar"
+        <Pressable
+          style={({ pressed }) => [
+            styles.boton,
+            { backgroundColor: '#4F46E5', opacity: pressed ? 0.7 : 1 }
+          ]}
+          onPress={alternarRol}
+        >
+          <Text style={styles.textoBoton}>Cambiar Rol Profesional</Text>
+        </Pressable>
+
+        <Pressable
+          style={({ pressed }) => [
+            styles.boton,
+            { backgroundColor: '#10B981', opacity: pressed ? 0.7 : 1 }
+          ]}
           onPress={() => Alert.alert("Contacto", "Email: andressguilera2006@gmail.com\nTel: +57 314 7656474")}
-          color="#10B981"
-        />
+        >
+          <Text style={styles.textoBoton}>Contactar</Text>
+        </Pressable>
       </View>
+      
       <StatusBar style="light" />
     </View>
   );
@@ -86,4 +105,16 @@ const styles = StyleSheet.create({
     width: '100%',
     gap: 15,
   },
+  boton: {
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  textoBoton: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
+  }
 });
