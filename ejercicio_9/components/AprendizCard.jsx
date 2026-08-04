@@ -2,7 +2,7 @@ import React from 'react';
 import { Alert } from 'react-native';
 import { Card, Title, Paragraph, Avatar, Button, ProgressBar, useTheme } from 'react-native-paper';
 
-const AprendizCard = ({ nombre, programa, ficha, avance, foto }) => {
+const AprendizCard = ({ nombre, programa, ficha, telefono, avance, foto }) => {
     const theme = useTheme();
 
     return (
@@ -22,6 +22,9 @@ const AprendizCard = ({ nombre, programa, ficha, avance, foto }) => {
                 <Paragraph style={{ color: theme.colors.text }}>
                     <Paragraph style={{ fontWeight: 'bold' }}>Ficha: </Paragraph>{ficha}
                 </Paragraph>
+                <Paragraph style={{ color: theme.colors.text }}>
+                    <Paragraph style={{ fontWeight: 'bold' }}>Teléfono: </Paragraph>{telefono}
+                </Paragraph>
                 <Paragraph style={{ marginTop: 10, fontWeight: 'bold', color: theme.colors.text }}>
                     Avance etapa lectiva ({Math.round(avance * 100)}%)
                 </Paragraph>
@@ -39,7 +42,7 @@ const AprendizCard = ({ nombre, programa, ficha, avance, foto }) => {
                     onPress={() =>
                         Alert.alert(
                             "Contacto",
-                            "Contactando a " + nombre
+                            `Contactando a ${nombre} al teléfono ${telefono}`
                         )
                     }
                 >
