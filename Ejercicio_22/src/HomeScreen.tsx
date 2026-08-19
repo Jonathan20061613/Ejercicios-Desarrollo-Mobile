@@ -39,7 +39,6 @@ export default function HomeScreen({ navigation }: HomeScreenProps): React.JSX.E
 
     return (
         <View style={styles.container}>
-            {/* Header */}
             <View style={styles.header}>
                 <View style={styles.badgeContainer}>
                     <View style={styles.liveIndicator} />
@@ -53,7 +52,6 @@ export default function HomeScreen({ navigation }: HomeScreenProps): React.JSX.E
                 <Text style={styles.subtitle}>SISTEMA DE AUDITORÍA</Text>
             </View>
 
-            {/* Lista de Zonas */}
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.list}>
                 {zonas.map((zona) => (
                     <ZonaAlmacen
@@ -71,7 +69,7 @@ export default function HomeScreen({ navigation }: HomeScreenProps): React.JSX.E
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F8FAFC', // Fondo claro minimalista
+        backgroundColor: '#F8FAFC', 
         paddingTop: 55,
         paddingHorizontal: 20,
     },

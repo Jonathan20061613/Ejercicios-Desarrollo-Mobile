@@ -62,7 +62,6 @@ export default function CapturaEvidencia({ navigation }: CapturaEvidenciaProps):
 
     return (
         <View style={styles.container}>
-            {/* Header */}
             <View style={styles.header}>
                 <View style={styles.statusBadge}>
                     <View style={photoUri ? styles.statusCaptured : styles.statusLive} />
@@ -72,7 +71,6 @@ export default function CapturaEvidencia({ navigation }: CapturaEvidenciaProps):
                 </View>
             </View>
 
-            {/* Visor o Vista Previa */}
             {photoUri ? (
                 <View style={styles.viewFrame}>
                     <Image source={{ uri: photoUri }} style={styles.previewImage} />
@@ -94,7 +92,6 @@ export default function CapturaEvidencia({ navigation }: CapturaEvidenciaProps):
                 </View>
             )}
 
-            {/* Controles */}
             <View style={styles.controlsBar}>
                 {!photoUri ? (
                     <Button
